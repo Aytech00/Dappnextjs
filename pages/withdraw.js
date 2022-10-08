@@ -63,9 +63,8 @@ export default function Home() {
       setIsConnected(false);
     }
   }
-async function fund() {
-  const ethAmount = "0.01";
-    console.log(`Funding with ${ethAmount}...`)
+async function withdraw() {
+    console.log(`Withdrawing...`)
   if (typeof window.ethereum !== "undefined") {
     const web3ModalProvider = await web3Modal.connect();
         setIsConnected(true);
@@ -73,10 +72,8 @@ async function fund() {
         setSigner(provider.getSigner());
       const contractAddress = '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512';
       const contract = new ethers.Contract(contractAddress, abi, signer);
-        try {
-            const transactionResponse = await contract.fund({
-                value: ethers.utils.parseEther(ethAmount),
-            })
+         try {
+            const transactionResponse = await contract.withdraw()
             await listenForTransactionMine(transactionResponse, provider)
         } catch (error) {
             console.log(error)
@@ -118,8 +115,8 @@ async function fund() {
 
           <div className="main-button-wrap-2">
             <div className="inner-button-wrap-2">
-            <button  onClick={() => fund()}>Migrate</button>
-          <button  onClick={() => fund()}>Staking</button>
+            <button >Migrate</button>
+          <button  onClick={() => withdraw()}>Staking</button>
               
 
             </div>
