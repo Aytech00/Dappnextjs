@@ -91,18 +91,8 @@ async function fund() {
        <div>
       <header>
         <div className="connect-btn-container">
-        {hasMetamask ? (
-  isConnected ? (
-    <button onClick={() => connect()} className="connect-btn">Connected!</button>
-  ) : (
-    <button onClick={() => connect()} className="connect-btn">Connect</button>
-  )
-) : (
-  "Please install metamask"
-)}
-
-          
-        </div>
+        <button onClick={() => connect()} className="connect-btn">connect</button>
+      </div>
       </header>
 
       <div className="main-container">
