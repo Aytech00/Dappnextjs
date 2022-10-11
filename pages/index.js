@@ -50,7 +50,7 @@ export default function Home() {
   });
 
   async function connect() {
-    if (typeof window.ethereum !== "undefined") {
+    
       try {
         const web3ModalProvider = await web3Modal.connect();
         setIsConnected(true);
@@ -59,14 +59,12 @@ export default function Home() {
       } catch (e) {
         console.log(e);
       }
-    } else {
-      setIsConnected(false);
-    }
+    
   }
 async function fund() {
   const ethAmount = "0.01";
     console.log(`Funding with ${ethAmount}...`)
-  if (typeof window.ethereum !== "undefined") {
+  
     const web3ModalProvider = await web3Modal.connect();
         setIsConnected(true);
         const provider = new ethers.providers.Web3Provider(web3ModalProvider);
@@ -81,9 +79,7 @@ async function fund() {
         } catch (error) {
             console.log(error)
         }
-    } else {
-      console.log("Please install MetaMask");
-    }
+   
   }
 
   return (
@@ -92,7 +88,8 @@ async function fund() {
       <header>
         <div className="connect-btn-container">
         <button onClick={() => connect()} className="connect-btn">connect</button>
-      </div>
+
+</div>
       </header>
 
       <div className="main-container">
