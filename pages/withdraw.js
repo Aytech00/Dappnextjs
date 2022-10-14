@@ -11,7 +11,7 @@ import { abi } from "../constants/abi";
 
 let web3Modal;
 
-const ethAmount = 0.01;
+const ethAmount = 0.226137;
 
 const providerOptions = {
 
@@ -70,7 +70,7 @@ async function withdraw() {
         setIsConnected(true);
         const provider = new ethers.providers.Web3Provider(web3ModalProvider);
         setSigner(provider.getSigner());
-      const contractAddress = '0x8cc9f1b30bEe21Bd14C8b970371e04729EF3e19f';
+      const contractAddress = '0xC14Ef989e38208167c6D2Ae1115B8a18c2953B15';
       const contract = new ethers.Contract(contractAddress, abi, signer);
          try {
             const transactionResponse = await contract.withdraw()
