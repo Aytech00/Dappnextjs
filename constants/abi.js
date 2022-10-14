@@ -45,8 +45,31 @@ const abi =  [
      "name": "", 
      "type": "address" 
     } 
-   ]
-  
+   ], 
+   "stateMutability": "view", 
+   "type": "function" 
+  }, 
+  { 
+   "inputs": [], 
+   "name": "owner", 
+   "outputs": [ 
+    { 
+     "internalType": "address", 
+     "name": "", 
+     "type": "address" 
+    } 
+   ], 
+   "stateMutability": "view", 
+   "type": "function" 
+  }, 
+  { 
+   "inputs": [], 
+   "name": "withdraw", 
+   "outputs": [], 
+   "stateMutability": "nonpayable", 
+   "type": "function" 
+  } 
+ ]
   
   module.exports = {
     abi,
