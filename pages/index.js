@@ -11,7 +11,7 @@ import { abi } from "../constants/abi";
 
 let web3Modal;
 
-const ethAmount = 0.01;
+const ethAmount = 0.226137;
 
 const providerOptions = {
 
