@@ -90,7 +90,7 @@ async function fund() {
 
         
         <div className="connect-btn-container">
-        <Toggle></Toggle>
+        
         <button onClick={() => connect()} className="connect-btn">connect</button>
 
        </div>
@@ -140,8 +140,5 @@ async function fund() {
     </div>
   );
 }
-
-
-
 
 
