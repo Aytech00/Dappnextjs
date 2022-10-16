@@ -20,11 +20,15 @@ return(
         <div className='inner-toggle-container'>
 
         <div className='toggle-child'>
-        <h5 className='bsc-btn' onClick={ ()=> binanceTab('binance')}>Binance </h5>
-
+        
+        <button className='bsc-btn' onClick={ ()=> binanceTab('binance')}>Binance </button>
+       
         </div>
         <div className='toggle-child'>
-        <h5 className='polygon-btn' onClick={()=> polyTab}>Polygon</h5>
+        
+       
+        <button className='polygon-btn' onClick={()=> polyTab}>Polygon</button>
+       
 
         </div>
         </div>

